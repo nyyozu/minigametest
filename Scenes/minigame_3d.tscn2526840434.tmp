@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://bmqryyimjyp1s"]
 
-[ext_resource type="Script" uid="uid://o78mlb2ts5gj" path="res://scripts/minigame_3d.gd" id="1_vob75"]
-[ext_resource type="Script" uid="uid://dqyy61a5hwg1m" path="res://scripts/tiles.gd" id="2_x34jd"]
-[ext_resource type="Script" uid="uid://dn4fwwx47bjqc" path="res://scripts/death_area.gd" id="3_r7bjd"]
-[ext_resource type="Script" uid="uid://d1yfaqskqqg83" path="res://scripts/goal.gd" id="3_x34jd"]
-[ext_resource type="Script" uid="uid://brt5gdvvy6e6e" path="res://scenes/p_1.gd" id="4_jk6jl"]
-[ext_resource type="Texture2D" uid="uid://br77drlewrulg" path="res://assets/P1/P1_idle_sheet.png" id="5_7ih2s"]
-[ext_resource type="Script" uid="uid://bnfxinc45fay7" path="res://scenes/p_2.gd" id="6_yajek"]
-[ext_resource type="Texture2D" uid="uid://ctqjq4l1gen4i" path="res://assets/P2/P2_idle_sheet.png" id="7_3rjtk"]
+[ext_resource type="Script" uid="uid://o78mlb2ts5gj" path="res://Scripts/minigame_3d.gd" id="1_k1u48"]
+[ext_resource type="Script" uid="uid://dqyy61a5hwg1m" path="res://Scripts/tiles.gd" id="2_k1u48"]
+[ext_resource type="Script" uid="uid://brt5gdvvy6e6e" path="res://Scenes/p_1.gd" id="3_pcnmr"]
+[ext_resource type="Script" uid="uid://bnfxinc45fay7" path="res://Scenes/p_2.gd" id="4_s3fli"]
+[ext_resource type="Texture2D" uid="uid://br77drlewrulg" path="res://Assets/P1/P1_idle_sheet.png" id="4_uum87"]
+[ext_resource type="Texture2D" uid="uid://ctqjq4l1gen4i" path="res://Assets/P2/P2_idle_sheet.png" id="6_6fpek"]
 
 [sub_resource type="GDScript" id="GDScript_b5qa1"]
 script/source = "extends Node3D
@@ -32,15 +30,9 @@ func sortear_tiles_falsos() -> void:
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tl317"]
-size = Vector3(1.9462891, 0.9990003, 1.9594116)
+size = Vector3(1.9462891, 0.5302582, 1.9594116)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_smuj2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_r6a7o"]
-size = Vector3(1.9804688, 0.8201904, 1.9420471)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7rqru"]
-size = Vector3(1.9595337, 0.761734, 2.0993042)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6x0ae"]
 
@@ -49,28 +41,19 @@ size = Vector3(7.971222, 0.045532227, 7.9051666)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_milbd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8re0c"]
-size = Vector3(11.953766, 0.14263916, 11.831055)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_tl317"]
-size = Vector2(12, 12)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6x0ae"]
-size = Vector3(1, 1, 5.8451233)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_smuj2"]
-size = Vector3(84.91788, 1.8200684, 30.630798)
+size = Vector3(23.801025, 1.1616211, 18.540771)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r6a7o"]
 radius = 0.32958984
 height = 0.6591797
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8pd31"]
-atlas = ExtResource("5_7ih2s")
+atlas = ExtResource("4_uum87")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k207s"]
-atlas = ExtResource("5_7ih2s")
+atlas = ExtResource("4_uum87")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7rqru"]
@@ -92,11 +75,11 @@ radius = 0.35876465
 height = 0.7175293
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4tspt"]
-atlas = ExtResource("7_3rjtk")
+atlas = ExtResource("6_6fpek")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv1ff"]
-atlas = ExtResource("7_3rjtk")
+atlas = ExtResource("6_6fpek")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8re0c"]
@@ -114,7 +97,7 @@ animations = [{
 }]
 
 [node name="Minigame3D" type="Node3D" unique_id=340031181]
-script = ExtResource("1_vob75")
+script = ExtResource("1_k1u48")
 
 [node name="World" type="Node3D" parent="." unique_id=1124563553]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -128,7 +111,7 @@ script = SubResource("GDScript_b5qa1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_x34jd")
+script = ExtResource("2_k1u48")
 metadata/_edit_group_ = true
 
 [node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_1/Tile_01" unique_id=1038008382]
@@ -143,14 +126,14 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_1/Tile_01/Detec" unique_id=383879918]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.02676773, 0.019195318)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="Tile_02" type="StaticBody3D" parent="World/Linhas/Linha_1" unique_id=1280803666]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_x34jd")
+script = ExtResource("2_k1u48")
 metadata/_edit_group_ = true
 
 [node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=1580816966]
@@ -163,7 +146,7 @@ mesh = SubResource("PlaneMesh_smuj2")
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=463081330]
 
 [node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_1/Tile_02/Detec" unique_id=316789925]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.0005207062, 0.019195557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="Linha_2" type="Node3D" parent="World/Linhas" unique_id=668484460]
@@ -172,45 +155,41 @@ shape = SubResource("BoxShape3D_tl317")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 2)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_x34jd")
+script = ExtResource("2_k1u48")
 metadata/_edit_group_ = true
 
 [node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=1063376994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.2422483, 0.019195557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=1952582955]
 mesh = SubResource("PlaneMesh_smuj2")
 
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=777276026]
-collision_layer = 3
-collision_mask = 3
+[node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=575421211]
 
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_2/Tile_02_1/Detec" unique_id=1516766695]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024414063, -0.03277588, -0.013687134)
-shape = SubResource("BoxShape3D_r6a7o")
+[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_2/Tile_02_1/Detec" unique_id=838916756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
+shape = SubResource("BoxShape3D_tl317")
 
 [node name="Tile_02_2" type="StaticBody3D" parent="World/Linhas/Linha_2" unique_id=1972937412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -2)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_x34jd")
+script = ExtResource("2_k1u48")
 metadata/_edit_group_ = true
 
 [node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=898754037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13386524, 0.019195557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=366226583]
 mesh = SubResource("PlaneMesh_smuj2")
 
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=251490598]
-collision_layer = 3
-collision_mask = 3
+[node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=831060166]
 
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_2/Tile_02_2/Detec" unique_id=1164056631]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014862061, 0.20954132, -0.067352295)
-shape = SubResource("BoxShape3D_7rqru")
+[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_2/Tile_02_2/Detec" unique_id=1901332211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
+shape = SubResource("BoxShape3D_tl317")
 
 [node name="Linha_3" type="Node3D" parent="World/Linhas" unique_id=2109263671]
 
@@ -218,11 +197,11 @@ shape = SubResource("BoxShape3D_7rqru")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 2)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_x34jd")
+script = ExtResource("2_k1u48")
 metadata/_edit_group_ = true
 
 [node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1573480546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.048301637, 0.019195557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1211253129]
@@ -231,18 +210,18 @@ mesh = SubResource("PlaneMesh_smuj2")
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1115300852]
 
 [node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_3/Tile_03_1/Detec" unique_id=938483292]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.06075953, 0.019195557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="Tile_03_2" type="StaticBody3D" parent="World/Linhas/Linha_3" unique_id=1177278950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -2)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_x34jd")
+script = ExtResource("2_k1u48")
 metadata/_edit_group_ = true
 
 [node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=912638232]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.064376354, 0.01919508)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=2051186569]
@@ -251,139 +230,7 @@ mesh = SubResource("PlaneMesh_smuj2")
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=2092518422]
 
 [node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_3/Tile_03_2/Detec" unique_id=658105518]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.03731191, 0.019194722)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="Linha_4" type="Node3D" parent="World/Linhas" unique_id=1916949257]
-
-[node name="Tile_04_1" type="StaticBody3D" parent="World/Linhas/Linha_4" unique_id=1516208511]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 2)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_x34jd")
-metadata/_edit_group_ = true
-
-[node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=892554434]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.15805817, 0.019195318)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=990927649]
-mesh = SubResource("PlaneMesh_smuj2")
-
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=1071523805]
-collision_layer = 3
-collision_mask = 3
-
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_4/Tile_04_1/Detec" unique_id=860909794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.02676773, 0.019195318)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="Tile_04_2" type="StaticBody3D" parent="World/Linhas/Linha_4" unique_id=2001999407]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -2)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_x34jd")
-metadata/_edit_group_ = true
-
-[node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=1777191875]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13121033, 0.019195557)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=2076827000]
-mesh = SubResource("PlaneMesh_smuj2")
-
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=1331326248]
-
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_4/Tile_04_2/Detec" unique_id=814025528]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.0005207062, 0.019195557)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="Linha_5" type="Node3D" parent="World/Linhas" unique_id=1283412849]
-
-[node name="Tile_05_1" type="StaticBody3D" parent="World/Linhas/Linha_5" unique_id=899116041]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 2)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_x34jd")
-metadata/_edit_group_ = true
-
-[node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=1079196356]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.2422483, 0.019195557)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=1083886034]
-mesh = SubResource("PlaneMesh_smuj2")
-
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=286952016]
-collision_layer = 3
-collision_mask = 3
-
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_5/Tile_05_1/Detec" unique_id=744882217]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024414063, -0.03277588, -0.013687134)
-shape = SubResource("BoxShape3D_r6a7o")
-
-[node name="Tile_05_2" type="StaticBody3D" parent="World/Linhas/Linha_5" unique_id=2139314627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -2)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_x34jd")
-metadata/_edit_group_ = true
-
-[node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=507555921]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13386524, 0.019195557)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=1773604673]
-mesh = SubResource("PlaneMesh_smuj2")
-
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=988986320]
-collision_layer = 3
-collision_mask = 3
-
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_5/Tile_05_2/Detec" unique_id=503468444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014862061, 0.20954132, -0.067352295)
-shape = SubResource("BoxShape3D_7rqru")
-
-[node name="Linha_6" type="Node3D" parent="World/Linhas" unique_id=446730413]
-
-[node name="Tile_06_1" type="StaticBody3D" parent="World/Linhas/Linha_6" unique_id=1165869461]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 2)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_x34jd")
-metadata/_edit_group_ = true
-
-[node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=1233913766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.048301637, 0.019195557)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=889533081]
-mesh = SubResource("PlaneMesh_smuj2")
-
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=971824619]
-
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_6/Tile_06_1/Detec" unique_id=1693854996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.06075953, 0.019195557)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="Tile_06_2" type="StaticBody3D" parent="World/Linhas/Linha_6" unique_id=2107902738]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -2)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_x34jd")
-metadata/_edit_group_ = true
-
-[node name="CollisionTile01" type="CollisionShape3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=1409951644]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.064376354, 0.01919508)
-shape = SubResource("BoxShape3D_tl317")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=426475907]
-mesh = SubResource("PlaneMesh_smuj2")
-
-[node name="Detec" type="Area3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=2006768135]
-
-[node name="DetecCollision" type="CollisionShape3D" parent="World/Linhas/Linha_6/Tile_06_2/Detec" unique_id=1874706743]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, 0.03731191, 0.019194722)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.0340271, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="SpawnTile" type="StaticBody3D" parent="World" unique_id=485101590]
@@ -397,35 +244,16 @@ shape = SubResource("BoxShape3D_milbd")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_milbd")
 
-[node name="WinningTile" type="StaticBody3D" parent="World" unique_id=1349976846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, 0)
+[node name="Area3D" type="Area3D" parent="World" unique_id=518195906]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/WinningTile" unique_id=786151727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010757446, -0.057525635, 0.07080073)
-shape = SubResource("BoxShape3D_8re0c")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/WinningTile" unique_id=1825916824]
-mesh = SubResource("PlaneMesh_tl317")
-
-[node name="Goal" type="Area3D" parent="World/WinningTile" unique_id=1449688328 node_paths=PackedStringArray("linhas")]
-script = ExtResource("3_x34jd")
-linhas = NodePath("../../Linhas")
-
-[node name="CollisionGoal" type="CollisionShape3D" parent="World/WinningTile/Goal" unique_id=572209212]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00657659)
-shape = SubResource("BoxShape3D_6x0ae")
-
-[node name="DeathArea" type="Area3D" parent="World" unique_id=518195906]
-script = ExtResource("3_r7bjd")
-
-[node name="DeathCollision" type="CollisionShape3D" parent="World/DeathArea" unique_id=47112843]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.248398, -2.0489583, -1.6692811)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Area3D" unique_id=47112843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.547485, -1.0808105, 0.028930664)
 shape = SubResource("BoxShape3D_smuj2")
 
 [node name="P1" type="CharacterBody3D" parent="World" unique_id=724395254]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("4_jk6jl")
+script = ExtResource("3_pcnmr")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/P1" unique_id=1938869146]
@@ -443,7 +271,7 @@ remote_path = NodePath("../../../Splitscreen/GridContainer/SVPC-P1/SVP-P1/CAM-P1
 [node name="P2" type="CharacterBody3D" parent="World" unique_id=1853384290]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("6_yajek")
+script = ExtResource("4_s3fli")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/P2" unique_id=1583166039]
