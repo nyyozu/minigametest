@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://o78mlb2ts5gj" path="res://scripts/minigame_3d.gd" id="1_vob75"]
 [ext_resource type="Script" uid="uid://dqyy61a5hwg1m" path="res://scripts/tiles.gd" id="2_x34jd"]
+[ext_resource type="Texture2D" uid="uid://bb377sppu26vk" path="res://assets/Tiles/tile_linha1_panela_pequena.png" id="3_jk6jl"]
 [ext_resource type="Script" uid="uid://dn4fwwx47bjqc" path="res://scripts/death_area.gd" id="3_r7bjd"]
 [ext_resource type="Script" uid="uid://d1yfaqskqqg83" path="res://scripts/goal.gd" id="3_x34jd"]
-[ext_resource type="Script" uid="uid://brt5gdvvy6e6e" path="res://scenes/p_1.gd" id="4_jk6jl"]
-[ext_resource type="Texture2D" uid="uid://br77drlewrulg" path="res://assets/P1/P1_idle_sheet.png" id="5_7ih2s"]
-[ext_resource type="Script" uid="uid://bnfxinc45fay7" path="res://scenes/p_2.gd" id="6_yajek"]
-[ext_resource type="Texture2D" uid="uid://ctqjq4l1gen4i" path="res://assets/P2/P2_idle_sheet.png" id="7_3rjtk"]
+[ext_resource type="Texture2D" uid="uid://cio46omkm6j2h" path="res://assets/Tiles/tile_linha2_panela_grande.png" id="4_3rjtk"]
+[ext_resource type="Script" uid="uid://brt5gdvvy6e6e" path="res://scripts/p_1.gd" id="4_jk6jl"]
+[ext_resource type="Texture2D" uid="uid://bdtyrgg35ou5o" path="res://assets/Tiles/tile_linha3_frigideira.png" id="5_g6vbk"]
+[ext_resource type="Texture2D" uid="uid://betq3b3kcnwyb" path="res://assets/Tiles/tile_floor.png" id="6_g6vbk"]
+[ext_resource type="Texture2D" uid="uid://bvcr12c2bjwrd" path="res://assets/P1/ChefP1_idle_sheet.png" id="6_r7bjd"]
+[ext_resource type="Script" uid="uid://bnfxinc45fay7" path="res://scripts/p_2.gd" id="6_yajek"]
+[ext_resource type="Texture2D" uid="uid://c4sf1j6r5q5d3" path="res://assets/P1/ChefP1_walk_sheet.png" id="7_jk6jl"]
+[ext_resource type="Texture2D" uid="uid://c16xv13hfurcn" path="res://assets/P2/ChefP2_idle_sheet.png" id="10_7ih2s"]
+[ext_resource type="Texture2D" uid="uid://c87dngsscw677" path="res://assets/P2/ChefP2_walk_sheet.png" id="11_yajek"]
 
 [sub_resource type="GDScript" id="GDScript_b5qa1"]
 script/source = "extends Node3D
@@ -34,23 +40,77 @@ func sortear_tiles_falsos() -> void:
 [sub_resource type="BoxShape3D" id="BoxShape3D_tl317"]
 size = Vector3(1.9462891, 0.9990003, 1.9594116)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7bjd"]
+albedo_texture = ExtResource("3_jk6jl")
+metallic = 1.0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_smuj2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grvna"]
+albedo_texture = ExtResource("3_jk6jl")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyymd"]
+albedo_texture = ExtResource("4_3rjtk")
+metallic = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6a7o"]
 size = Vector3(1.9804688, 0.8201904, 1.9420471)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpkdx"]
+albedo_texture = ExtResource("4_3rjtk")
+metallic = 1.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rqru"]
 size = Vector3(1.9595337, 0.761734, 2.0993042)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0jjh"]
+albedo_texture = ExtResource("5_g6vbk")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhmcx"]
+albedo_texture = ExtResource("5_g6vbk")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3uui"]
+albedo_texture = ExtResource("4_3rjtk")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u57bp"]
+albedo_texture = ExtResource("4_3rjtk")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbblr"]
+albedo_texture = ExtResource("5_g6vbk")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3s3v"]
+albedo_texture = ExtResource("5_g6vbk")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64rqp"]
+albedo_texture = ExtResource("3_jk6jl")
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2oe0"]
+albedo_texture = ExtResource("3_jk6jl")
+metallic = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6x0ae"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_milbd"]
 size = Vector3(7.971222, 0.045532227, 7.9051666)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0da2w"]
+albedo_texture = ExtResource("6_g6vbk")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_milbd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8re0c"]
 size = Vector3(11.953766, 0.14263916, 11.831055)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hr5m"]
+albedo_texture = ExtResource("6_g6vbk")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tl317"]
 size = Vector2(12, 12)
@@ -65,25 +125,58 @@ size = Vector3(84.91788, 1.8200684, 30.630798)
 radius = 0.32958984
 height = 0.6591797
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pd31"]
-atlas = ExtResource("5_7ih2s")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ih2s"]
+atlas = ExtResource("6_r7bjd")
+region = Rect2(0, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k207s"]
-atlas = ExtResource("5_7ih2s")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yajek"]
+atlas = ExtResource("6_r7bjd")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rjtk"]
+atlas = ExtResource("7_jk6jl")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6vbk"]
+atlas = ExtResource("7_jk6jl")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hr5m"]
+atlas = ExtResource("7_jk6jl")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0da2w"]
+atlas = ExtResource("7_jk6jl")
+region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7rqru"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8pd31")
+"texture": SubResource("AtlasTexture_7ih2s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k207s")
+"texture": SubResource("AtlasTexture_yajek")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rjtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6vbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hr5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0da2w")
+}],
+"loop": 1,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -91,25 +184,58 @@ animations = [{
 radius = 0.35876465
 height = 0.7175293
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4tspt"]
-atlas = ExtResource("7_3rjtk")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_exuyy"]
+atlas = ExtResource("10_7ih2s")
+region = Rect2(0, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qv1ff"]
-atlas = ExtResource("7_3rjtk")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4qht"]
+atlas = ExtResource("10_7ih2s")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3qto"]
+atlas = ExtResource("11_yajek")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s5u1"]
+atlas = ExtResource("11_yajek")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aesvi"]
+atlas = ExtResource("11_yajek")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yymvj"]
+atlas = ExtResource("11_yajek")
+region = Rect2(192, 0, 64, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8re0c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4tspt")
+"texture": SubResource("AtlasTexture_exuyy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qv1ff")
+"texture": SubResource("AtlasTexture_j4qht")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3qto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s5u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aesvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yymvj")
+}],
+"loop": 1,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -136,6 +262,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.15805817, 0.
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_01" unique_id=860422837]
+material_override = SubResource("StandardMaterial3D_r7bjd")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_1/Tile_01" unique_id=1313996823]
@@ -158,6 +285,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13121033, 0.
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=1082197441]
+material_override = SubResource("StandardMaterial3D_grvna")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=463081330]
@@ -180,6 +308,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.2422483, 0.0
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=1952582955]
+material_override = SubResource("StandardMaterial3D_cyymd")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=777276026]
@@ -202,6 +331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13386524, 0.
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=366226583]
+material_override = SubResource("StandardMaterial3D_hpkdx")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=251490598]
@@ -226,6 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.048301637, 0
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1211253129]
+material_override = SubResource("StandardMaterial3D_r0jjh")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1115300852]
@@ -246,6 +377,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.064376354, 0
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=2051186569]
+material_override = SubResource("StandardMaterial3D_hhmcx")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=2092518422]
@@ -268,6 +400,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.15805817, 0.
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=990927649]
+material_override = SubResource("StandardMaterial3D_f3uui")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=1071523805]
@@ -290,6 +423,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13121033, 0.
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=2076827000]
+material_override = SubResource("StandardMaterial3D_u57bp")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=1331326248]
@@ -312,6 +446,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.2422483, 0.0
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=1083886034]
+material_override = SubResource("StandardMaterial3D_sbblr")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=286952016]
@@ -334,6 +469,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13386524, 0.
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=1773604673]
+material_override = SubResource("StandardMaterial3D_v3s3v")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=988986320]
@@ -358,6 +494,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.048301637, 0
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=889533081]
+material_override = SubResource("StandardMaterial3D_64rqp")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=971824619]
@@ -378,6 +515,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.064376354, 0
 shape = SubResource("BoxShape3D_tl317")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=426475907]
+material_override = SubResource("StandardMaterial3D_o2oe0")
 mesh = SubResource("PlaneMesh_smuj2")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=2006768135]
@@ -395,6 +533,7 @@ shape = SubResource("BoxShape3D_milbd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/SpawnTile" unique_id=509543565]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_0da2w")
 mesh = SubResource("PlaneMesh_milbd")
 
 [node name="WinningTile" type="StaticBody3D" parent="World" unique_id=1349976846]
@@ -405,6 +544,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010757446, -0.057525635, 0
 shape = SubResource("BoxShape3D_8re0c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/WinningTile" unique_id=1825916824]
+material_override = SubResource("StandardMaterial3D_2hr5m")
 mesh = SubResource("PlaneMesh_tl317")
 
 [node name="Goal" type="Area3D" parent="World/WinningTile" unique_id=1449688328 node_paths=PackedStringArray("linhas")]
@@ -435,6 +575,7 @@ shape = SubResource("CapsuleShape3D_r6a7o")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="World/P1" unique_id=2122633360]
 transform = Transform3D(0.03330671, 0, -0.9994452, 0, 1, 0, 0.9994452, 0, 0.03330671, 0.029678581, 0.6101697, -0.9929615)
 sprite_frames = SubResource("SpriteFrames_7rqru")
+animation = &"walk"
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="World/P1" unique_id=1776204461]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -4, 2.9, -1)
@@ -453,6 +594,7 @@ shape = SubResource("CapsuleShape3D_b5qa1")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="World/P2" unique_id=949619078]
 transform = Transform3D(-0.07307488, 0, -0.99732643, 0, 1, 0, 0.99732643, 0, -0.07307488, 0.16303647, 0.59203553, 0.91837287)
 sprite_frames = SubResource("SpriteFrames_8re0c")
+animation = &"walk"
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="World/P2" unique_id=1024399961]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -4, 2.9, 1)
