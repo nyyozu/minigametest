@@ -22,7 +22,7 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _declarar_vitoria(jogador: Node3D) -> void:
 	print("🏆 ", jogador.name, " venceu o jogo!")
-	win_label.visibility = true
+	win_label.show()
 	vitoria.emit(jogador)
 
 	for nome in ["P1", "P2"]:
@@ -31,4 +31,5 @@ func _declarar_vitoria(jogador: Node3D) -> void:
 			p.set_physics_process(false)
 
 	await get_tree().create_timer(tempo_antes_de_finalizar).timeout
+	win_label.hide()
 	GameManager.finalizar_minigame({"vencedor": jogador.name})
