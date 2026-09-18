@@ -20,5 +20,3 @@ func sortear_tiles_falsos() -> void:
 
 		var indice_sorteado = randi() % tiles_da_linha.size()
 		tiles_da_linha[indice_sorteado].is_fake = true
-
-		print("Fake na ", linha.name, ": ", tiles_da_linha[indice_sorteado].name)

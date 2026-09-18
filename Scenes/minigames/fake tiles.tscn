@@ -239,6 +239,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_7ymno"]
+font_size = 40
+font_color = Color(0.9278343, 0, 0.28301933, 1)
+
 [node name="Minigame3D" type="Node3D" unique_id=340031181]
 script = ExtResource("1_vob75")
 
@@ -547,9 +551,8 @@ shape = SubResource("BoxShape3D_8re0c")
 material_override = SubResource("StandardMaterial3D_2hr5m")
 mesh = SubResource("PlaneMesh_tl317")
 
-[node name="Goal" type="Area3D" parent="World/WinningTile" unique_id=1449688328 node_paths=PackedStringArray("linhas")]
+[node name="Goal" type="Area3D" parent="World/WinningTile" unique_id=1449688328]
 script = ExtResource("3_x34jd")
-linhas = NodePath("../../Linhas")
 
 [node name="CollisionGoal" type="CollisionShape3D" parent="World/WinningTile/Goal" unique_id=572209212]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00657659)
@@ -607,6 +610,24 @@ light_color = Color(0.9098852, 0.89664716, 0.46859187, 1)
 light_energy = 5.911
 shadow_enabled = true
 sky_mode = 1
+
+[node name="Win Canva" type="CanvasLayer" parent="World" unique_id=1474697546]
+
+[node name="Win Label" type="Label" parent="World/Win Canva" unique_id=1345265475]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -27.5
+offset_right = 133.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "FIM DO JOGO!"
+label_settings = SubResource("LabelSettings_7ymno")
 
 [node name="Splitscreen" type="CanvasLayer" parent="." unique_id=1455727690]
 
