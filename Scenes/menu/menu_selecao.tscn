@@ -98,16 +98,24 @@ layout_mode = 2
 
 [node name="escolha" type="Label" parent="CenterContainer/VBoxContainer" unique_id=331063368]
 layout_mode = 2
-text = "Choose"
+text = "Minigames:"
 label_settings = SubResource("LabelSettings_smuj2")
 horizontal_alignment = 1
 
-[node name="fake_tiles" type="Button" parent="CenterContainer/VBoxContainer" unique_id=983338461]
-layout_mode = 2
+[node name="fake_tiles" type="Button" parent="." unique_id=983338461]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 355.0
+offset_right = 610.0
+offset_bottom = 386.0
 text = "Fake Tiles"
 
-[node name="obstacle" type="Button" parent="CenterContainer/VBoxContainer" unique_id=918697452]
-layout_mode = 2
+[node name="obstacle" type="Button" parent="." unique_id=918697452]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 391.0
+offset_right = 610.0
+offset_bottom = 422.0
 text = "Obstacle"
 
 [node name="P1" type="Label" parent="." unique_id=563248056]
@@ -134,5 +142,5 @@ position = Vector2(640, 158)
 sprite_frames = SubResource("SpriteFrames_smuj2")
 frame_progress = 0.8185849
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/fake_tiles" to="." method="_on_botao_tiles_falsos_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/obstacle" to="." method="_on_obstacle_pressed"]
+[connection signal="pressed" from="fake_tiles" to="." method="_on_botao_tiles_falsos_pressed"]
+[connection signal="pressed" from="obstacle" to="." method="_on_obstacle_pressed"]
