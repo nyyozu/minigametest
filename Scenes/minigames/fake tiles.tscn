@@ -103,6 +103,7 @@ size = Vector3(7.971222, 0.045532227, 7.9051666)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0da2w"]
 albedo_texture = ExtResource("6_g6vbk")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_milbd"]
 
@@ -111,6 +112,7 @@ size = Vector3(11.953766, 0.14263916, 11.831055)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hr5m"]
 albedo_texture = ExtResource("6_g6vbk")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tl317"]
 size = Vector2(12, 12)
@@ -606,7 +608,6 @@ remote_path = NodePath("../../../Splitscreen/GridContainer/SVPC-P2/SVP-P1/CAM-P2
 [node name="Sun" type="DirectionalLight3D" parent="World" unique_id=790040036]
 transform = Transform3D(0.70710677, 0.49999997, -0.49999997, 0, 0.70710677, 0.70710677, 0.70710677, -0.49999997, 0.49999997, 0, 60, 30)
 layers = 7
-light_color = Color(0.9098852, 0.89664716, 0.46859187, 1)
 light_energy = 5.911
 shadow_enabled = true
 sky_mode = 1

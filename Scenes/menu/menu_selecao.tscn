@@ -1,9 +1,83 @@
 [gd_scene format=3 uid="uid://b5fl4wcbkv4uh"]
 
 [ext_resource type="Script" uid="uid://c2s5dextclem2" path="res://scripts/menu_selecao.gd" id="1_7tia0"]
+[ext_resource type="Texture2D" uid="uid://c4sf1j6r5q5d3" path="res://assets/P1/ChefP1_walk_sheet.png" id="2_d1kub"]
+[ext_resource type="Texture2D" uid="uid://c87dngsscw677" path="res://assets/P2/ChefP2_walk_sheet.png" id="3_itl41"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_smuj2"]
 font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgg0t"]
+atlas = ExtResource("2_d1kub")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu3o0"]
+atlas = ExtResource("2_d1kub")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jbc6"]
+atlas = ExtResource("2_d1kub")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3asf7"]
+atlas = ExtResource("2_d1kub")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_milbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgg0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu3o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jbc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3asf7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvg5k"]
+atlas = ExtResource("3_itl41")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgwtq"]
+atlas = ExtResource("3_itl41")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5axud"]
+atlas = ExtResource("3_itl41")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfehn"]
+atlas = ExtResource("3_itl41")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smuj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvg5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgwtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5axud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfehn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MenuSelecao" type="Control" unique_id=1895418196]
 layout_mode = 3
@@ -30,12 +104,35 @@ horizontal_alignment = 1
 
 [node name="fake_tiles" type="Button" parent="CenterContainer/VBoxContainer" unique_id=983338461]
 layout_mode = 2
-text = "fake tiles
-"
+text = "Fake Tiles"
 
-[node name="other" type="Button" parent="CenterContainer/VBoxContainer" unique_id=918697452]
+[node name="obstacle" type="Button" parent="CenterContainer/VBoxContainer" unique_id=918697452]
 layout_mode = 2
-text = "other
-"
+text = "Obstacle"
+
+[node name="P1" type="Label" parent="." unique_id=563248056]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 135.0
+offset_right = 503.0
+offset_bottom = 182.0
+
+[node name="P2" type="Label" parent="." unique_id=1829448601]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 135.0
+offset_right = 826.0
+offset_bottom = 182.0
+
+[node name="P1_SPRITE" type="AnimatedSprite2D" parent="." unique_id=1436094611]
+position = Vector2(317, 158)
+sprite_frames = SubResource("SpriteFrames_milbd")
+frame_progress = 0.15342462
+
+[node name="P2_SPRITE" type="AnimatedSprite2D" parent="." unique_id=743053928]
+position = Vector2(640, 158)
+sprite_frames = SubResource("SpriteFrames_smuj2")
+frame_progress = 0.8185849
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/fake_tiles" to="." method="_on_botao_tiles_falsos_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/obstacle" to="." method="_on_obstacle_pressed"]

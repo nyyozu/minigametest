@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://cnbfqj4dlcp7g"]
+
+[ext_resource type="Script" uid="uid://d0guig2oe2ohv" path="res://scripts/p_1_obstacle.gd" id="1_ki3o5"]
+[ext_resource type="Texture2D" uid="uid://betq3b3kcnwyb" path="res://assets/Tiles/tile_floor.png" id="1_po8hn"]
+[ext_resource type="Texture2D" uid="uid://dy67xj31iwv1i" path="res://assets/obstacle/ChefP1_duck_0.png" id="1_vrfa0"]
+[ext_resource type="Texture2D" uid="uid://bvcr12c2bjwrd" path="res://assets/P1/ChefP1_idle_sheet.png" id="2_fc574"]
+[ext_resource type="Texture2D" uid="uid://cq22wf5ksjl84" path="res://assets/obstacle/ChefP1_jump_0.png" id="3_rwn4h"]
+[ext_resource type="Texture2D" uid="uid://cwlxh72tul3or" path="res://assets/obstacle/ChefP2_duck_0.png" id="4_xcxbb"]
+[ext_resource type="Texture2D" uid="uid://c16xv13hfurcn" path="res://assets/P2/ChefP2_idle_sheet.png" id="5_ki3o5"]
+[ext_resource type="Script" uid="uid://cuifp5c20c2nl" path="res://scripts/p_2_obstacle.gd" id="5_mtg82"]
+[ext_resource type="Texture2D" uid="uid://barxmlyq86i2w" path="res://assets/obstacle/ChefP2_jump_0.png" id="6_mtg82"]
+[ext_resource type="Script" uid="uid://dhs2yt3y4hmei" path="res://scripts/death_area_obstacle.gd" id="9_cvu5g"]
+[ext_resource type="PackedScene" uid="uid://b2or8lxac2rn" path="res://scenes/testes/obstacle.tscn" id="9_umutu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_milbd"]
+size = Vector2(10, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55moq"]
+albedo_texture = ExtResource("1_po8hn")
+uv1_scale = Vector3(5, 1.5, 5)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_milbd"]
+size = Vector3(9.885986, 0.48535156, 3.9521484)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcxbb"]
+atlas = ExtResource("1_vrfa0")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki3o5"]
+atlas = ExtResource("2_fc574")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtg82"]
+atlas = ExtResource("2_fc574")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvu5g"]
+atlas = ExtResource("3_rwn4h")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_milbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcxbb")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki3o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtg82")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvu5g")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_milbd"]
+radius = 0.16845703
+height = 0.81689453
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tl317"]
+radius = 0.184
+height = 0.51
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umutu"]
+atlas = ExtResource("4_xcxbb")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po8hn"]
+atlas = ExtResource("5_ki3o5")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n3fc"]
+atlas = ExtResource("5_ki3o5")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06wii"]
+atlas = ExtResource("6_mtg82")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_umutu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umutu")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po8hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n3fc")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06wii")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_smuj2"]
+radius = 0.18115234
+height = 0.81591797
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r6a7o"]
+radius = 0.18392944
+height = 0.50961304
+
+[sub_resource type="GDScript" id="GDScript_smuj2"]
+script/source = "extends Node3D
+
+@export var cena_obstaculo: PackedScene
+@export var spawn_x: float = 8.5
+@export var intervalo_inicial: float = 1.7
+@export var intervalo_minimo: float = 0.8
+@export var velocidade_inicial: float = 6.0
+@export var velocidade_maxima: float = 12.0
+@export var duracao_ate_max: float = 40.0
+@export var mesmo_tipo_nas_faixas: bool = true
+
+@onready var p1: Node3D = $\"../P1\"
+@onready var p2: Node3D = $\"../P2\"
+
+var _tempo: float = 0.0
+var _rodando: bool = true
+
+func _ready() -> void:
+	_loop_spawn()
+
+func _process(delta: float) -> void:
+	if _rodando:
+		_tempo += delta
+
+func parar() -> void:
+	_rodando = false
+	limpar()
+	
+func limpar() -> void:
+	for o in get_children():
+		o.queue_free()
+
+func _loop_spawn() -> void:
+	while _rodando:
+		var t := clampf(_tempo / duracao_ate_max, 0.0, 1.0)
+		var intervalo := lerpf(intervalo_inicial, intervalo_minimo, t)
+		await get_tree().create_timer(intervalo).timeout
+		if not _rodando:
+			return
+		var velocidade := lerpf(velocidade_inicial, velocidade_maxima, t)
+		var tipo_comum := randi() % 2
+		for p in [p1, p2]:
+			_criar_obstaculo(p, velocidade, tipo_comum if mesmo_tipo_nas_faixas else randi() % 2)
+
+func _criar_obstaculo(alvo: Node3D, velocidade: float, tipo: int) -> void:
+	var o = cena_obstaculo.instantiate()
+	o.tipo = tipo
+	o.velocidade = velocidade
+	o.alvo = alvo
+	add_child(o)
+	o.position.x = spawn_x
+	o.position.z = alvo.position.z
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smuj2"]
+size = Vector3(11.748993, 1, 11.446045)
+
+[node name="World" type="Node3D" unique_id=1591520059]
+
+[node name="CAM" type="Camera3D" parent="." unique_id=1439620636]
+transform = Transform3D(0.9848077, 0.07338689, -0.15737869, 0, 0.90630776, 0.42261827, 0.17364818, -0.41619775, 0.8925389, -3.1, 2, 3)
+
+[node name="TILES" type="StaticBody3D" parent="." unique_id=1155037327]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TILES" unique_id=1192400411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005961895, -0.014904499, 0.0078110695)
+mesh = SubResource("PlaneMesh_milbd")
+surface_material_override/0 = SubResource("StandardMaterial3D_55moq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TILES" unique_id=2130094263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045776367, -0.25732422, -0.0053710938)
+shape = SubResource("BoxShape3D_milbd")
+
+[node name="P1" type="CharacterBody3D" parent="." unique_id=722334708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5713984, 1)
+script = ExtResource("1_ki3o5")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="P1" unique_id=981483145]
+sprite_frames = SubResource("SpriteFrames_milbd")
+animation = &"idle"
+
+[node name="CollisionUp" type="CollisionShape3D" parent="P1" unique_id=1154670429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010498047, 0)
+shape = SubResource("CapsuleShape3D_milbd")
+
+[node name="CollisionDowned" type="CollisionShape3D" parent="P1" unique_id=494727492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21, 0)
+shape = SubResource("CapsuleShape3D_tl317")
+
+[node name="P2" type="CharacterBody3D" parent="." unique_id=611077521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.644774, -1)
+script = ExtResource("5_mtg82")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="P2" unique_id=1312061265]
+sprite_frames = SubResource("SpriteFrames_umutu")
+animation = &"idle"
+
+[node name="CollisionUp" type="CollisionShape3D" parent="P2" unique_id=274214009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009521484, 0)
+shape = SubResource("CapsuleShape3D_smuj2")
+
+[node name="CollisionDowned" type="CollisionShape3D" parent="P2" unique_id=569702763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21058655, 0)
+shape = SubResource("CapsuleShape3D_r6a7o")
+
+[node name="Spawner_Obstacle" type="Node3D" parent="." unique_id=1756563489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0797906, -1.3528447, 0)
+script = SubResource("GDScript_smuj2")
+cena_obstaculo = ExtResource("9_umutu")
+
+[node name="Death_Area" type="Area3D" parent="." unique_id=716471222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -4, 0)
+script = ExtResource("9_cvu5g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Death_Area" unique_id=1289011140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9132843, 0, -1.3165283)
+shape = SubResource("BoxShape3D_smuj2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1768551715]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 5.710732, 4.5591173)
