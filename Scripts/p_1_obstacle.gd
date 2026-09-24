@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 3.5
 const EMPURRAO = 0.6
 
 @onready var colisao_normal: CollisionShape3D = $CollisionUp
