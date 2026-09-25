@@ -15,12 +15,18 @@ var _ja_acertou := false
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	position.y = altura_baixo if tipo == Tipo.BAIXO else altura_alto
+	sprite.texture = load(
+		"res://assets/obstacle/obst_baixo.svg" if tipo == Tipo.BAIXO
+		else "res://assets/obstacle/obst_alto.svg"
+	)
 
 func _physics_process(delta: float) -> void:
 	position.x -= velocidade * delta
 	if position.x < -distancia_limite:
 		queue_free()
-	sprite.rotation.x += 6.0 * delta
+	# so o caldeirao do chao rola; o suspenso fica parado
+	if tipo == Tipo.BAIXO:
+		sprite.rotation.x += 6.0 * delta
 
 var alvo: Node3D = null
 

@@ -1,85 +1,106 @@
-[gd_scene format=3 uid="uid://b5fl4wcbkv4uh"]
+[gd_scene load_steps=21 format=3 uid="uid://b5fl4wcbkv4uh"]
 
 [ext_resource type="Script" uid="uid://c2s5dextclem2" path="res://scripts/menu_selecao.gd" id="1_7tia0"]
-[ext_resource type="Texture2D" uid="uid://c4sf1j6r5q5d3" path="res://assets/P1/ChefP1_walk_sheet.png" id="2_d1kub"]
-[ext_resource type="Texture2D" uid="uid://c87dngsscw677" path="res://assets/P2/ChefP2_walk_sheet.png" id="3_itl41"]
+[ext_resource type="Texture2D" path="res://assets/P1/ChefP1_walk_v2.svg" id="2_d1kub"]
+[ext_resource type="Texture2D" path="res://assets/P2/ChefP2_walk_v2.svg" id="3_itl41"]
+[ext_resource type="Texture2D" path="res://assets/menu/bg_parede.svg" id="4_fundo"]
+[ext_resource type="Texture2D" path="res://assets/menu/utensilios_pendurados.svg" id="5_utensilios"]
+[ext_resource type="Texture2D" path="res://assets/menu/prateleira_plantas.svg" id="6_prateleira"]
+[ext_resource type="Texture2D" path="res://assets/menu/vapor.svg" id="7_vapor"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_smuj2"]
-font_size = 40
+[sub_resource type="LabelSettings" id="LabelSettings_titulo"]
+font_size = 32
+font_color = Color(1, 0.941176, 0.768627, 1)
+font_shadow = true
+shadow_offset = Vector2(0, 3)
+shadow_color = Color(0, 0, 0, 0.45)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgg0t"]
+[sub_resource type="LabelSettings" id="LabelSettings_aviso"]
+font_size = 15
+font_color = Color(0.290196, 0.235294, 0.184314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_placar"]
+font_size = 56
+font_color = Color(0.94902, 0.937255, 0.901961, 1)
+font_shadow = true
+shadow_offset = Vector2(0, 3)
+shadow_color = Color(0, 0, 0, 0.5)
+outline_size = 6
+outline_color = Color(0.145098, 0.121569, 0.101961, 0.85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_0"]
 atlas = ExtResource("2_d1kub")
 region = Rect2(0, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pu3o0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_1"]
 atlas = ExtResource("2_d1kub")
 region = Rect2(64, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jbc6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_2"]
 atlas = ExtResource("2_d1kub")
 region = Rect2(128, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3asf7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_3"]
 atlas = ExtResource("2_d1kub")
 region = Rect2(192, 0, 64, 80)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_milbd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgg0t")
+"texture": SubResource("AtlasTexture_p1_0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pu3o0")
+"texture": SubResource("AtlasTexture_p1_1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8jbc6")
+"texture": SubResource("AtlasTexture_p1_2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3asf7")
+"texture": SubResource("AtlasTexture_p1_3")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvg5k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_0"]
 atlas = ExtResource("3_itl41")
 region = Rect2(0, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rgwtq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_1"]
 atlas = ExtResource("3_itl41")
 region = Rect2(64, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5axud"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_2"]
 atlas = ExtResource("3_itl41")
 region = Rect2(128, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfehn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_3"]
 atlas = ExtResource("3_itl41")
 region = Rect2(192, 0, 64, 80)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_smuj2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yvg5k")
+"texture": SubResource("AtlasTexture_p2_0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rgwtq")
+"texture": SubResource("AtlasTexture_p2_1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5axud")
+"texture": SubResource("AtlasTexture_p2_2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfehn")
+"texture": SubResource("AtlasTexture_p2_3")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="MenuSelecao" type="Control" unique_id=1895418196]
+[node name="MenuSelecao" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,59 +109,245 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7tia0")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=460861795]
-layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 652.0
+[node name="Fundo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_fundo")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=213904906]
-layout_mode = 2
+[node name="Utensilios" type="TextureRect" parent="."]
+layout_mode = 1
+mouse_filter = 2
+texture = ExtResource("5_utensilios")
+expand_mode = 1
+stretch_mode = 5
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 100.0
 
-[node name="escolha" type="Label" parent="CenterContainer/VBoxContainer" unique_id=331063368]
+[node name="Prateleira" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224.0
+offset_right = 0.0
+offset_bottom = 96.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("6_prateleira")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Vapor" type="Node2D" parent="."]
+
+[node name="Tomilho" type="Node2D" parent="Vapor"]
+position = Vector2(120, 556)
+
+[node name="Fumaca_1" type="Sprite2D" parent="Vapor/Tomilho"]
+scale = Vector2(0.45, 0.45)
+modulate = Color(1, 1, 1, 0.5)
+texture = ExtResource("7_vapor")
+
+[node name="Fumaca_2" type="Sprite2D" parent="Vapor/Tomilho"]
+position = Vector2(20, -9)
+scale = Vector2(0.38, 0.38)
+modulate = Color(1, 1, 1, 0.45)
+texture = ExtResource("7_vapor")
+
+[node name="Fumaca_3" type="Sprite2D" parent="Vapor/Tomilho"]
+position = Vector2(40, -17)
+scale = Vector2(0.3, 0.3)
+modulate = Color(1, 1, 1, 0.4)
+texture = ExtResource("7_vapor")
+
+[node name="Alecrim" type="Node2D" parent="Vapor"]
+position = Vector2(600, 566)
+
+[node name="Fumaca_4" type="Sprite2D" parent="Vapor/Alecrim"]
+scale = Vector2(0.45, 0.45)
+modulate = Color(1, 1, 1, 0.5)
+texture = ExtResource("7_vapor")
+
+[node name="Fumaca_5" type="Sprite2D" parent="Vapor/Alecrim"]
+position = Vector2(20, -9)
+scale = Vector2(0.38, 0.38)
+modulate = Color(1, 1, 1, 0.45)
+texture = ExtResource("7_vapor")
+
+[node name="Fumaca_6" type="Sprite2D" parent="Vapor/Alecrim"]
+position = Vector2(40, -17)
+scale = Vector2(0.3, 0.3)
+modulate = Color(1, 1, 1, 0.4)
+texture = ExtResource("7_vapor")
+
+[node name="Canela" type="Node2D" parent="Vapor"]
+position = Vector2(1000, 556)
+
+[node name="Fumaca_7" type="Sprite2D" parent="Vapor/Canela"]
+scale = Vector2(0.45, 0.45)
+modulate = Color(1, 1, 1, 0.5)
+texture = ExtResource("7_vapor")
+
+[node name="Fumaca_8" type="Sprite2D" parent="Vapor/Canela"]
+position = Vector2(20, -9)
+scale = Vector2(0.38, 0.38)
+modulate = Color(1, 1, 1, 0.45)
+texture = ExtResource("7_vapor")
+
+[node name="Fumaca_9" type="Sprite2D" parent="Vapor/Canela"]
+position = Vector2(40, -17)
+scale = Vector2(0.3, 0.3)
+modulate = Color(1, 1, 1, 0.4)
+texture = ExtResource("7_vapor")
+
+[node name="Placar" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 276.0
+offset_top = 70.0
+offset_right = 876.0
+offset_bottom = 250.0
+
+[node name="Conteudo" type="HBoxContainer" parent="Placar"]
 layout_mode = 2
-text = "Minigames:"
-label_settings = SubResource("LabelSettings_smuj2")
+theme_override_constants/separation = 24
+
+[node name="Coluna_P1" type="VBoxContainer" parent="Placar/Conteudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="P1" type="Label" parent="Placar/Conteudo/Coluna_P1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_placar")
 horizontal_alignment = 1
 
-[node name="fake_tiles" type="Button" parent="." unique_id=983338461]
-layout_mode = 0
-offset_left = 521.0
-offset_top = 355.0
-offset_right = 610.0
-offset_bottom = 386.0
-text = "Fake Tiles"
+[node name="Slot_P1" type="Control" parent="Placar/Conteudo/Coluna_P1"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
 
-[node name="obstacle" type="Button" parent="." unique_id=918697452]
-layout_mode = 0
-offset_left = 521.0
-offset_top = 391.0
-offset_right = 610.0
-offset_bottom = 422.0
-text = "Obstacle"
+[node name="P1_SPRITE" type="AnimatedSprite2D" parent="Placar/Conteudo/Coluna_P1/Slot_P1"]
+unique_name_in_owner = true
+position = Vector2(40, 50)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_p1")
 
-[node name="P1" type="Label" parent="." unique_id=563248056]
-layout_mode = 0
-offset_left = 380.0
-offset_top = 135.0
-offset_right = 503.0
-offset_bottom = 182.0
+[node name="Coluna_P2" type="VBoxContainer" parent="Placar/Conteudo"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+theme_override_constants/separation = 4
 
-[node name="P2" type="Label" parent="." unique_id=1829448601]
-layout_mode = 0
-offset_left = 703.0
-offset_top = 135.0
-offset_right = 826.0
-offset_bottom = 182.0
+[node name="P2" type="Label" parent="Placar/Conteudo/Coluna_P2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_placar")
+horizontal_alignment = 1
 
-[node name="P1_SPRITE" type="AnimatedSprite2D" parent="." unique_id=1436094611]
-position = Vector2(317, 158)
-sprite_frames = SubResource("SpriteFrames_milbd")
-frame_progress = 0.15342462
+[node name="Slot_P2" type="Control" parent="Placar/Conteudo/Coluna_P2"]
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
 
-[node name="P2_SPRITE" type="AnimatedSprite2D" parent="." unique_id=743053928]
-position = Vector2(640, 158)
-sprite_frames = SubResource("SpriteFrames_smuj2")
-frame_progress = 0.8185849
+[node name="P2_SPRITE" type="AnimatedSprite2D" parent="Placar/Conteudo/Coluna_P2/Slot_P2"]
+unique_name_in_owner = true
+position = Vector2(40, 50)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_p2")
+
+[node name="Cabecalho" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -52.0
+offset_right = 304.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Coluna" type="VBoxContainer" parent="Cabecalho"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="escolha" type="Label" parent="Cabecalho/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ESCOLHA O MINIGAME"
+label_settings = SubResource("LabelSettings_titulo")
+horizontal_alignment = 1
+
+[node name="aviso" type="HBoxContainer" parent="Cabecalho/Coluna"]
+layout_mode = 2
+
+[node name="Cmd_P1" type="Label" parent="Cabecalho/Coluna/aviso"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "P1: WASD + TAB"
+label_settings = SubResource("LabelSettings_aviso")
+horizontal_alignment = 1
+
+[node name="Cmd_P2" type="Label" parent="Cabecalho/Coluna/aviso"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "P2: setas + espaço"
+label_settings = SubResource("LabelSettings_aviso")
+horizontal_alignment = 1
+
+[node name="fake_tiles" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 112)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = 78.0
+offset_right = 170.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Minigame 1
+Fake Tiles"
+
+[node name="obstacle" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 112)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = 202.0
+offset_right = 170.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Minigame 2
+Obstacle"
 
 [connection signal="pressed" from="fake_tiles" to="." method="_on_botao_tiles_falsos_pressed"]
 [connection signal="pressed" from="obstacle" to="." method="_on_obstacle_pressed"]

@@ -1,27 +1,29 @@
 [gd_scene format=3 uid="uid://cnbfqj4dlcp7g"]
 
 [ext_resource type="Script" uid="uid://d0guig2oe2ohv" path="res://scripts/p_1_obstacle.gd" id="1_ki3o5"]
-[ext_resource type="Texture2D" uid="uid://betq3b3kcnwyb" path="res://assets/Tiles/tile_floor.png" id="1_po8hn"]
-[ext_resource type="Texture2D" uid="uid://dy67xj31iwv1i" path="res://assets/obstacle/ChefP1_duck_0.png" id="1_vrfa0"]
-[ext_resource type="Texture2D" uid="uid://bvcr12c2bjwrd" path="res://assets/P1/ChefP1_idle_sheet.png" id="2_fc574"]
-[ext_resource type="Texture2D" uid="uid://cq22wf5ksjl84" path="res://assets/obstacle/ChefP1_jump_0.png" id="3_rwn4h"]
-[ext_resource type="Texture2D" uid="uid://cwlxh72tul3or" path="res://assets/obstacle/ChefP2_duck_0.png" id="4_xcxbb"]
-[ext_resource type="Texture2D" uid="uid://c16xv13hfurcn" path="res://assets/P2/ChefP2_idle_sheet.png" id="5_ki3o5"]
+[ext_resource type="Texture2D" path="res://assets/Tiles/tile_piso_cozinha.svg" id="1_po8hn"]
+[ext_resource type="Texture2D" path="res://assets/obstacle/ChefP1_duck_v2.svg" id="1_vrfa0"]
+[ext_resource type="Texture2D" path="res://assets/obstacle/ChefP1_idle_v2.svg" id="2_fc574"]
+[ext_resource type="Texture2D" path="res://assets/obstacle/ChefP1_jump_v2.svg" id="3_rwn4h"]
+[ext_resource type="Texture2D" path="res://assets/obstacle/ChefP2_duck_v2.svg" id="4_xcxbb"]
+[ext_resource type="Texture2D" path="res://assets/obstacle/ChefP2_idle_v2.svg" id="5_ki3o5"]
 [ext_resource type="Script" uid="uid://cuifp5c20c2nl" path="res://scripts/p_2_obstacle.gd" id="5_mtg82"]
-[ext_resource type="Texture2D" uid="uid://barxmlyq86i2w" path="res://assets/obstacle/ChefP2_jump_0.png" id="6_mtg82"]
+[ext_resource type="Texture2D" path="res://assets/obstacle/ChefP2_jump_v2.svg" id="6_mtg82"]
 [ext_resource type="Script" uid="uid://dhs2yt3y4hmei" path="res://scripts/death_area_obstacle.gd" id="9_cvu5g"]
 [ext_resource type="PackedScene" uid="uid://b2or8lxac2rn" path="res://scenes/testes/obstacle.tscn" id="9_umutu"]
+[ext_resource type="Texture2D" path="res://assets/Tiles/parede_azulejos.svg" id="50_parede"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_milbd"]
-size = Vector2(10, 4)
+size = Vector2(24, 9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55moq"]
 albedo_texture = ExtResource("1_po8hn")
-uv1_scale = Vector3(5, 1.5, 5)
-texture_filter = 0
+metallic = 0.0
+roughness = 0.9
+uv1_scale = Vector3(12, 4.5, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_milbd"]
-size = Vector3(9.885986, 0.48535156, 3.9521484)
+size = Vector3(23.9, 0.48535156, 8.95)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xcxbb"]
 atlas = ExtResource("1_vrfa0")
@@ -189,6 +191,51 @@ func _criar_obstaculo(alvo: Node3D, velocidade: float, tipo: int) -> void:
 [sub_resource type="BoxShape3D" id="BoxShape3D_smuj2"]
 size = Vector3(11.748993, 1, 11.446045)
 
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_obst"]
+sky_top_color = Color(0.24313726, 0.3254902, 0.47843137, 1)
+sky_horizon_color = Color(0.7254902, 0.69411766, 0.63137255, 1)
+ground_bottom_color = Color(0.101961, 0.086275, 0.066667, 1)
+ground_horizon_color = Color(0.290196, 0.254902, 0.219608, 1)
+
+[sub_resource type="Sky" id="Sky_obst"]
+sky_material = SubResource("ProceduralSkyMaterial_obst")
+
+[sub_resource type="Environment" id="Environment_obst"]
+background_mode = 2
+sky = SubResource("Sky_obst")
+ambient_light_source = 2
+ambient_light_color = Color(0.7058824, 0.6666667, 0.6, 1)
+ambient_light_energy = 0.55
+tonemap_mode = 2
+tonemap_white = 1.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_parede_lat"]
+size = Vector3(26, 9, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_parede_fundo"]
+size = Vector3(0.6, 9, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_parede_obst"]
+albedo_texture = ExtResource("50_parede")
+albedo_color = Color(0.62, 0.6, 0.56, 1)
+metallic = 0.0
+roughness = 0.9
+texture_filter = 1
+cull_mode = 2
+uv1_scale = Vector3(20, 6, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hitbox"]
+radius = 0.5
+height = 1.0
+radial_segments = 12
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hitbox"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+albedo_color = Color(0.55, 0.78, 0.95, 0.22)
 [node name="World" type="Node3D" unique_id=1591520059]
 
 [node name="CAM" type="Camera3D" parent="." unique_id=1439620636]
@@ -197,13 +244,30 @@ transform = Transform3D(0.9848077, 0.07338689, -0.15737869, 0, 0.90630776, 0.422
 [node name="TILES" type="StaticBody3D" parent="." unique_id=1155037327]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TILES" unique_id=1192400411]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005961895, -0.014904499, 0.0078110695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.014904499, 0.0078110695)
 mesh = SubResource("PlaneMesh_milbd")
 surface_material_override/0 = SubResource("StandardMaterial3D_55moq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TILES" unique_id=2130094263]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045776367, -0.25732422, -0.0053710938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.25732422, -0.0053710938)
 shape = SubResource("BoxShape3D_milbd")
+
+[node name="Salao" type="Node3D" parent="."]
+
+[node name="Parede_Esquerda" type="MeshInstance3D" parent="Salao"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4.5, -5.5)
+material_override = SubResource("StandardMaterial3D_parede_obst")
+mesh = SubResource("BoxMesh_parede_lat")
+
+[node name="Parede_Direita" type="MeshInstance3D" parent="Salao"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4.5, 5.5)
+material_override = SubResource("StandardMaterial3D_parede_obst")
+mesh = SubResource("BoxMesh_parede_lat")
+
+[node name="Parede_Fundo" type="MeshInstance3D" parent="Salao"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 4.5, 0)
+material_override = SubResource("StandardMaterial3D_parede_obst")
+mesh = SubResource("BoxMesh_parede_fundo")
 
 [node name="P1" type="CharacterBody3D" parent="." unique_id=722334708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5713984, 1)
@@ -222,6 +286,11 @@ shape = SubResource("CapsuleShape3D_milbd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21, 0)
 shape = SubResource("CapsuleShape3D_tl317")
 
+[node name="Hitbox" type="MeshInstance3D" parent="P1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010498047, 0)
+material_override = SubResource("StandardMaterial3D_hitbox")
+mesh = SubResource("CapsuleMesh_hitbox")
+
 [node name="P2" type="CharacterBody3D" parent="." unique_id=611077521]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.644774, -1)
 script = ExtResource("5_mtg82")
@@ -239,8 +308,13 @@ shape = SubResource("CapsuleShape3D_smuj2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21058655, 0)
 shape = SubResource("CapsuleShape3D_r6a7o")
 
+[node name="Hitbox" type="MeshInstance3D" parent="P2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009521484, 0)
+material_override = SubResource("StandardMaterial3D_hitbox")
+mesh = SubResource("CapsuleMesh_hitbox")
+
 [node name="Spawner_Obstacle" type="Node3D" parent="." unique_id=1756563489]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0797906, -1.3528447, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0797906, 0, 0)
 script = SubResource("GDScript_smuj2")
 cena_obstaculo = ExtResource("9_umutu")
 
@@ -254,3 +328,10 @@ shape = SubResource("BoxShape3D_smuj2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1768551715]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 5.710732, 4.5591173)
+light_color = Color(1, 0.9647059, 0.8901961, 1)
+light_energy = 0.9
+shadow_enabled = true
+
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_obst")
