@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://c8h6qod5feaea"]
+
+[ext_resource type="Script" uid="uid://cw8pa5f5vqf88" path="res://scripts/wok/wok_jogador.gd" id="1_jogador"]
+[ext_resource type="Script" uid="uid://b7wyetltpoe3f" path="res://scripts/wok/wok_diretor.gd" id="2_diretor"]
+[ext_resource type="Script" uid="uid://cqxxmn840p1hl" path="res://scripts/wok/wok_camera.gd" id="3_camera"]
+[ext_resource type="Texture2D" uid="uid://md4eywp43ovq" path="res://assets/Tiles/tile_piso_cozinha.svg" id="4_piso"]
+[ext_resource type="Texture2D" uid="uid://di8kh5w5kcxwp" path="res://assets/P1/ChefP1_idle_v2.svg" id="5_p1"]
+[ext_resource type="Texture2D" uid="uid://cmog7b4efegl2" path="res://assets/P2/ChefP2_idle_v2.svg" id="6_p2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chao"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_chao"]
+size = Vector3(16, 1, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chao"]
+albedo_texture = ExtResource("4_piso")
+albedo_color = Color(0.62, 0.6, 0.56, 1)
+uv1_scale = Vector3(8, 8, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_chef"]
+radius = 0.35
+height = 0.9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chef1"]
+atlas = ExtResource("5_p1")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chef2"]
+atlas = ExtResource("6_p2")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wok"]
+sky_top_color = Color(0.24313726, 0.3254902, 0.47843137, 1)
+sky_horizon_color = Color(0.7254902, 0.69411766, 0.63137255, 1)
+sky_curve = 0.15
+ground_bottom_color = Color(0.101961, 0.086275, 0.066667, 1)
+ground_horizon_color = Color(0.290196, 0.254902, 0.219608, 1)
+sun_angle_max = 40.0
+sun_curve = 0.1
+
+[sub_resource type="Sky" id="Sky_wok"]
+sky_material = SubResource("ProceduralSkyMaterial_wok")
+
+[sub_resource type="Environment" id="Environment_wok"]
+background_mode = 2
+sky = SubResource("Sky_wok")
+ambient_light_source = 2
+ambient_light_color = Color(0.7058824, 0.6666667, 0.6, 1)
+ambient_light_energy = 0.4
+tonemap_mode = 2
+tonemap_white = 1.1
+
+[node name="Wok" type="Node3D"]
+
+[node name="Chao" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chao"]
+material_override = SubResource("StandardMaterial3D_chao")
+mesh = SubResource("BoxMesh_chao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao"]
+shape = SubResource("BoxShape3D_chao")
+
+[node name="P1" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.1, 0)
+script = ExtResource("1_jogador")
+meu_id = 0
+tecla_esquerda = "A"
+tecla_direita = "D"
+tecla_cima = "W"
+tecla_baixo = "S"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="P1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("CapsuleShape3D_chef")
+
+[node name="Sprite3D" type="Sprite3D" parent="P1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+texture = SubResource("AtlasTexture_chef1")
+
+[node name="P2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, 0)
+script = ExtResource("1_jogador")
+meu_id = 1
+tecla_esquerda = "ui_left"
+tecla_direita = "ui_right"
+tecla_cima = "ui_up"
+tecla_baixo = "ui_down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="P2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("CapsuleShape3D_chef")
+
+[node name="Sprite3D" type="Sprite3D" parent="P2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+texture = SubResource("AtlasTexture_chef2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 9, 12)
+fov = 70.0
+script = ExtResource("3_camera")
+
+[node name="Luz" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70710677, 0.49999997, -0.49999997, 0, 0.70710677, 0.70710677, 0.70710677, -0.49999997, 0.49999997, 0, 15, 8)
+light_color = Color(1, 0.9647059, 0.8901961, 1)
+light_energy = 0.9
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wok")
+
+[node name="Diretor" type="Node" parent="."]
+script = ExtResource("2_diretor")

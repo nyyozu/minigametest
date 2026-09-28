@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# plugin de IA local (nao versionado)
+addons/gamedev_ai/
+.gamedev_ai/

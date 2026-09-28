@@ -1,19 +1,63 @@
 [gd_scene format=3 uid="uid://bmqryyimjyp1s"]
 
-[ext_resource type="Script" uid="uid://o78mlb2ts5gj" path="res://scripts/minigame_3d.gd" id="1_vob75"]
-[ext_resource type="Script" uid="uid://dqyy61a5hwg1m" path="res://scripts/tiles.gd" id="2_x34jd"]
-[ext_resource type="Texture2D" uid="uid://bb377sppu26vk" path="res://assets/Tiles/tile_linha1_panela_pequena.png" id="3_jk6jl"]
-[ext_resource type="Script" uid="uid://dn4fwwx47bjqc" path="res://scripts/death_area.gd" id="3_r7bjd"]
-[ext_resource type="Script" uid="uid://d1yfaqskqqg83" path="res://scripts/goal.gd" id="3_x34jd"]
-[ext_resource type="Texture2D" uid="uid://cio46omkm6j2h" path="res://assets/Tiles/tile_linha2_panela_grande.png" id="4_3rjtk"]
-[ext_resource type="Script" uid="uid://brt5gdvvy6e6e" path="res://scripts/p_1.gd" id="4_jk6jl"]
-[ext_resource type="Texture2D" uid="uid://bdtyrgg35ou5o" path="res://assets/Tiles/tile_linha3_frigideira.png" id="5_g6vbk"]
-[ext_resource type="Texture2D" uid="uid://betq3b3kcnwyb" path="res://assets/Tiles/tile_floor.png" id="6_g6vbk"]
-[ext_resource type="Texture2D" uid="uid://bvcr12c2bjwrd" path="res://assets/P1/ChefP1_idle_sheet.png" id="6_r7bjd"]
-[ext_resource type="Script" uid="uid://bnfxinc45fay7" path="res://scripts/p_2.gd" id="6_yajek"]
-[ext_resource type="Texture2D" uid="uid://c4sf1j6r5q5d3" path="res://assets/P1/ChefP1_walk_sheet.png" id="7_jk6jl"]
-[ext_resource type="Texture2D" uid="uid://c16xv13hfurcn" path="res://assets/P2/ChefP2_idle_sheet.png" id="10_7ih2s"]
-[ext_resource type="Texture2D" uid="uid://c87dngsscw677" path="res://assets/P2/ChefP2_walk_sheet.png" id="11_yajek"]
+[ext_resource type="Script" uid="uid://o78mlb2ts5gj" path="res://scripts/fake tiles/minigame_3d.gd" id="1_vob75"]
+[ext_resource type="Script" uid="uid://dqyy61a5hwg1m" path="res://scripts/fake tiles/tiles.gd" id="2_x34jd"]
+[ext_resource type="Script" uid="uid://dn4fwwx47bjqc" path="res://scripts/fake tiles/death_area.gd" id="3_r7bjd"]
+[ext_resource type="Script" uid="uid://d1yfaqskqqg83" path="res://scripts/fake tiles/goal.gd" id="3_x34jd"]
+[ext_resource type="Script" uid="uid://brt5gdvvy6e6e" path="res://scripts/fake tiles/p_1.gd" id="4_jk6jl"]
+[ext_resource type="Texture2D" uid="uid://md4eywp43ovq" path="res://assets/Tiles/tile_piso_cozinha.svg" id="6_g6vbk"]
+[ext_resource type="Texture2D" uid="uid://di8kh5w5kcxwp" path="res://assets/P1/ChefP1_idle_v2.svg" id="6_r7bjd"]
+[ext_resource type="Script" uid="uid://bnfxinc45fay7" path="res://scripts/fake tiles/p_2.gd" id="6_yajek"]
+[ext_resource type="Texture2D" uid="uid://j4ntm80pww74" path="res://assets/P1/ChefP1_walk_v2.svg" id="7_jk6jl"]
+[ext_resource type="Texture2D" uid="uid://cmog7b4efegl2" path="res://assets/P2/ChefP2_idle_v2.svg" id="10_7ih2s"]
+[ext_resource type="Texture2D" uid="uid://c7gui1xc3w0ha" path="res://assets/P2/ChefP2_walk_v2.svg" id="11_yajek"]
+[ext_resource type="Texture2D" uid="uid://45pjtgxaykjc" path="res://assets/Tiles/parede_azulejos.svg" id="20_parede"]
+[ext_resource type="Texture2D" uid="uid://cq2hlb0l10mpd" path="res://assets/Tiles/faixa_chegada.svg" id="21_faixa"]
+[ext_resource type="Texture2D" uid="uid://biq1yd8f2p2gq" path="res://assets/Tiles/bandeira_quadriculada.svg" id="22_bandeira"]
+[ext_resource type="Texture2D" uid="uid://cr8dhkeqlhhlr" path="res://assets/Tiles/tampa_caldeirao.svg" id="23_tampa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cozinha"]
+sky_top_color = Color(0.24313726, 0.3254902, 0.47843137, 1)
+sky_horizon_color = Color(0.7254902, 0.69411767, 0.6313726, 1)
+ground_bottom_color = Color(0.101961, 0.086275, 0.066667, 1)
+ground_horizon_color = Color(0.290196, 0.254902, 0.219608, 1)
+sun_angle_max = 40.0
+sun_curve = 0.1
+
+[sub_resource type="Sky" id="Sky_cozinha"]
+sky_material = SubResource("ProceduralSkyMaterial_cozinha")
+
+[sub_resource type="Environment" id="Environment_cozinha"]
+background_mode = 2
+sky = SubResource("Sky_cozinha")
+ambient_light_source = 2
+ambient_light_color = Color(0.7058824, 0.6666667, 0.6, 1)
+ambient_light_energy = 0.4
+tonemap_mode = 2
+tonemap_white = 1.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_piso_fundo"]
+albedo_color = Color(0.62, 0.6, 0.56, 1)
+albedo_texture = ExtResource("6_g6vbk")
+roughness = 0.95
+uv1_scale = Vector3(30, 17, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_piso_fundo"]
+size = Vector2(60, 34)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_parede"]
+cull_mode = 2
+albedo_color = Color(0.62, 0.6, 0.56, 1)
+albedo_texture = ExtResource("20_parede")
+roughness = 0.9
+uv1_scale = Vector3(16, 10, 1)
+texture_filter = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_parede_fundo"]
+size = Vector3(0.8, 11, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_parede_lateral"]
+size = Vector3(54, 11, 0.8)
 
 [sub_resource type="GDScript" id="GDScript_b5qa1"]
 script/source = "extends Node3D
@@ -40,61 +84,40 @@ func sortear_tiles_falsos() -> void:
 [sub_resource type="BoxShape3D" id="BoxShape3D_tl317"]
 size = Vector3(1.9462891, 0.9990003, 1.9594116)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7bjd"]
-albedo_texture = ExtResource("3_jk6jl")
-metallic = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tampa"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("23_tampa")
+metallic = 0.1
+roughness = 0.62
+texture_filter = 1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_smuj2"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_tampa"]
+size = Vector2(1.95, 1.95)
+subdivide_width = 1
+subdivide_depth = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grvna"]
-albedo_texture = ExtResource("3_jk6jl")
-metallic = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caldeirao"]
+albedo_color = Color(0.23921569, 0.22352941, 0.2, 1)
+metallic = 0.15
+roughness = 0.7
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyymd"]
-albedo_texture = ExtResource("4_3rjtk")
-metallic = 1.0
+[sub_resource type="CylinderMesh" id="CylinderMesh_corpo"]
+top_radius = 0.95
+bottom_radius = 0.8
+height = 0.85
+radial_segments = 16
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_alca"]
+size = Vector3(0.16, 0.42, 0.26)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6a7o"]
 size = Vector3(1.9804688, 0.8201904, 1.9420471)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpkdx"]
-albedo_texture = ExtResource("4_3rjtk")
-metallic = 1.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rqru"]
 size = Vector3(1.9595337, 0.761734, 2.0993042)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0jjh"]
-albedo_texture = ExtResource("5_g6vbk")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhmcx"]
-albedo_texture = ExtResource("5_g6vbk")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3uui"]
-albedo_texture = ExtResource("4_3rjtk")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u57bp"]
-albedo_texture = ExtResource("4_3rjtk")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbblr"]
-albedo_texture = ExtResource("5_g6vbk")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3s3v"]
-albedo_texture = ExtResource("5_g6vbk")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64rqp"]
-albedo_texture = ExtResource("3_jk6jl")
-metallic = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2oe0"]
-albedo_texture = ExtResource("3_jk6jl")
-metallic = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6x0ae"]
 
@@ -103,6 +126,7 @@ size = Vector3(7.971222, 0.045532227, 7.9051666)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0da2w"]
 albedo_texture = ExtResource("6_g6vbk")
+roughness = 0.92
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_milbd"]
@@ -112,10 +136,36 @@ size = Vector3(11.953766, 0.14263916, 11.831055)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hr5m"]
 albedo_texture = ExtResource("6_g6vbk")
+roughness = 0.92
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tl317"]
 size = Vector2(12, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faixa"]
+albedo_texture = ExtResource("21_faixa")
+roughness = 0.85
+texture_filter = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_faixa"]
+size = Vector2(1.4, 5.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mastro"]
+albedo_color = Color(0.5411765, 0.5647059, 0.6, 1)
+metallic = 0.25
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_mastro"]
+size = Vector3(0.18, 4.2, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bandeira"]
+albedo_texture = ExtResource("22_bandeira")
+roughness = 0.9
+uv1_scale = Vector3(2.5, 1, 1)
+texture_filter = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_bandeira"]
+size = Vector3(0.09, 1.4, 5.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6x0ae"]
 size = Vector3(1, 1, 5.8451233)
@@ -248,8 +298,33 @@ font_color = Color(0.9278343, 0, 0.28301933, 1)
 [node name="Minigame3D" type="Node3D" unique_id=340031181]
 script = ExtResource("1_vob75")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2093422771]
+environment = SubResource("Environment_cozinha")
+
 [node name="World" type="Node3D" parent="." unique_id=1124563553]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Salao" type="Node3D" parent="World" unique_id=1239882984]
+
+[node name="Piso_Recuado" type="MeshInstance3D" parent="World/Salao" unique_id=410867054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -3.2, 0)
+material_override = SubResource("StandardMaterial3D_piso_fundo")
+mesh = SubResource("PlaneMesh_piso_fundo")
+
+[node name="Parede_Fundo" type="MeshInstance3D" parent="World/Salao" unique_id=1058595683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 5.5, 0)
+material_override = SubResource("StandardMaterial3D_parede")
+mesh = SubResource("BoxMesh_parede_fundo")
+
+[node name="Parede_Esquerda" type="MeshInstance3D" parent="World/Salao" unique_id=1190653093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5.5, -12)
+material_override = SubResource("StandardMaterial3D_parede")
+mesh = SubResource("BoxMesh_parede_lateral")
+
+[node name="Parede_Direita" type="MeshInstance3D" parent="World/Salao" unique_id=1529583834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5.5, 12)
+material_override = SubResource("StandardMaterial3D_parede")
+mesh = SubResource("BoxMesh_parede_lateral")
 
 [node name="Linhas" type="Node3D" parent="World" unique_id=758803343]
 script = SubResource("GDScript_b5qa1")
@@ -267,9 +342,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.15805817, 0.019195318)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_01" unique_id=860422837]
-material_override = SubResource("StandardMaterial3D_r7bjd")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_01" unique_id=1932562941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.341442, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_01/MeshInstance3D" unique_id=376824890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_01/MeshInstance3D" unique_id=442470973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_01/MeshInstance3D" unique_id=145652372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_1/Tile_01" unique_id=1313996823]
 collision_layer = 3
@@ -290,9 +381,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13121033, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=1082197441]
-material_override = SubResource("StandardMaterial3D_grvna")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=573960618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36829, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_02/MeshInstance3D" unique_id=1963927922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_02/MeshInstance3D" unique_id=741601874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_1/Tile_02/MeshInstance3D" unique_id=1764214345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_1/Tile_02" unique_id=463081330]
 
@@ -313,9 +420,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.2422483, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=1952582955]
-material_override = SubResource("StandardMaterial3D_cyymd")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=530452939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257252, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1/MeshInstance3D" unique_id=542375578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1/MeshInstance3D" unique_id=1065579779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_1/MeshInstance3D" unique_id=783494539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_1" unique_id=777276026]
 collision_layer = 3
@@ -336,9 +459,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13386524, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=366226583]
-material_override = SubResource("StandardMaterial3D_hpkdx")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=215695595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365635, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2/MeshInstance3D" unique_id=2099961154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2/MeshInstance3D" unique_id=557892876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_2/Tile_02_2/MeshInstance3D" unique_id=1348642681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_2/Tile_02_2" unique_id=251490598]
 collision_layer = 3
@@ -361,9 +500,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.048301637, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1211253129]
-material_override = SubResource("StandardMaterial3D_r0jjh")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1630395633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451199, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1/MeshInstance3D" unique_id=1597408604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1/MeshInstance3D" unique_id=1279410559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_1/MeshInstance3D" unique_id=1089514657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_3/Tile_03_1" unique_id=1115300852]
 
@@ -382,9 +537,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.064376354, 0.01919508)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=2051186569]
-material_override = SubResource("StandardMaterial3D_hhmcx")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=1145543425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435124, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2/MeshInstance3D" unique_id=1327443241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2/MeshInstance3D" unique_id=158592458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_3/Tile_03_2/MeshInstance3D" unique_id=1528707660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_3/Tile_03_2" unique_id=2092518422]
 
@@ -405,9 +576,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.15805817, 0.019195318)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=990927649]
-material_override = SubResource("StandardMaterial3D_f3uui")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=1840720642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.341442, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1/MeshInstance3D" unique_id=1590082133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1/MeshInstance3D" unique_id=2119222416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_1/MeshInstance3D" unique_id=280580565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_4/Tile_04_1" unique_id=1071523805]
 collision_layer = 3
@@ -428,9 +615,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13121033, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=2076827000]
-material_override = SubResource("StandardMaterial3D_u57bp")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=735658213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36829, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2/MeshInstance3D" unique_id=1438075040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2/MeshInstance3D" unique_id=794128763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_4/Tile_04_2/MeshInstance3D" unique_id=297588125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_4/Tile_04_2" unique_id=1331326248]
 
@@ -451,9 +654,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.2422483, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=1083886034]
-material_override = SubResource("StandardMaterial3D_sbblr")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=1399827119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257252, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1/MeshInstance3D" unique_id=1423198566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1/MeshInstance3D" unique_id=1783912221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_1/MeshInstance3D" unique_id=973119753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_5/Tile_05_1" unique_id=286952016]
 collision_layer = 3
@@ -474,9 +693,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.13386524, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=1773604673]
-material_override = SubResource("StandardMaterial3D_v3s3v")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=1048967965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365635, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2/MeshInstance3D" unique_id=1218550712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2/MeshInstance3D" unique_id=1023149584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_5/Tile_05_2/MeshInstance3D" unique_id=1653416260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_5/Tile_05_2" unique_id=988986320]
 collision_layer = 3
@@ -499,9 +734,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.048301637, 0.019195557)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=889533081]
-material_override = SubResource("StandardMaterial3D_64rqp")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=656070187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451199, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1/MeshInstance3D" unique_id=1971562845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1/MeshInstance3D" unique_id=68348005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_1/MeshInstance3D" unique_id=1012690486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_6/Tile_06_1" unique_id=971824619]
 
@@ -520,9 +771,25 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021240234, -0.064376354, 0.01919508)
 shape = SubResource("BoxShape3D_tl317")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=426475907]
-material_override = SubResource("StandardMaterial3D_o2oe0")
-mesh = SubResource("PlaneMesh_smuj2")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=983134811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435124, 0)
+material_override = SubResource("StandardMaterial3D_tampa")
+mesh = SubResource("PlaneMesh_tampa")
+
+[node name="Corpo" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2/MeshInstance3D" unique_id=1381499998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("CylinderMesh_corpo")
+
+[node name="Alca_E" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2/MeshInstance3D" unique_id=846641557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
+
+[node name="Alca_D" type="MeshInstance3D" parent="World/Linhas/Linha_6/Tile_06_2/MeshInstance3D" unique_id=930276221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_caldeirao")
+mesh = SubResource("BoxMesh_alca")
 
 [node name="Detec" type="Area3D" parent="World/Linhas/Linha_6/Tile_06_2" unique_id=2006768135]
 
@@ -552,6 +819,28 @@ shape = SubResource("BoxShape3D_8re0c")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/WinningTile" unique_id=1825916824]
 material_override = SubResource("StandardMaterial3D_2hr5m")
 mesh = SubResource("PlaneMesh_tl317")
+
+[node name="Bandeira" type="Node3D" parent="World/WinningTile" unique_id=1302010960]
+
+[node name="Faixa" type="MeshInstance3D" parent="World/WinningTile/Bandeira" unique_id=212190787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_faixa")
+mesh = SubResource("PlaneMesh_faixa")
+
+[node name="Mastro_Esquerdo" type="MeshInstance3D" parent="World/WinningTile/Bandeira" unique_id=1345536229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -2.92)
+material_override = SubResource("StandardMaterial3D_mastro")
+mesh = SubResource("BoxMesh_mastro")
+
+[node name="Mastro_Direito" type="MeshInstance3D" parent="World/WinningTile/Bandeira" unique_id=1107754404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 2.92)
+material_override = SubResource("StandardMaterial3D_mastro")
+mesh = SubResource("BoxMesh_mastro")
+
+[node name="Faixa_Quadriculada" type="MeshInstance3D" parent="World/WinningTile/Bandeira" unique_id=823025416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+material_override = SubResource("StandardMaterial3D_bandeira")
+mesh = SubResource("BoxMesh_bandeira")
 
 [node name="Goal" type="Area3D" parent="World/WinningTile" unique_id=1449688328]
 script = ExtResource("3_x34jd")
@@ -608,7 +897,8 @@ remote_path = NodePath("../../../Splitscreen/GridContainer/SVPC-P2/SVP-P1/CAM-P2
 [node name="Sun" type="DirectionalLight3D" parent="World" unique_id=790040036]
 transform = Transform3D(0.70710677, 0.49999997, -0.49999997, 0, 0.70710677, 0.70710677, 0.70710677, -0.49999997, 0.49999997, 0, 60, 30)
 layers = 7
-light_energy = 5.911
+light_color = Color(1, 0.9647059, 0.8901961, 1)
+light_energy = 0.95
 shadow_enabled = true
 sky_mode = 1
 
