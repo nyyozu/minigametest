@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://md4eywp43ovq" path="res://assets/Tiles/tile_piso_cozinha.svg" id="4_piso"]
 [ext_resource type="Texture2D" uid="uid://di8kh5w5kcxwp" path="res://assets/P1/ChefP1_idle_v2.svg" id="5_p1"]
 [ext_resource type="Texture2D" uid="uid://cmog7b4efegl2" path="res://assets/P2/ChefP2_idle_v2.svg" id="6_p2"]
+[ext_resource type="Texture2D" uid="uid://j4ntm80pww74" path="res://assets/P1/ChefP1_walk_v2.svg" id="7_andando_p1"]
+[ext_resource type="Texture2D" uid="uid://c7gui1xc3w0ha" path="res://assets/P2/ChefP2_walk_v2.svg" id="8_andando_p2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_chao"]
 size = Vector3(16, 1, 16)
@@ -17,18 +19,186 @@ size = Vector3(16, 1, 16)
 albedo_texture = ExtResource("4_piso")
 albedo_color = Color(0.62, 0.6, 0.56, 1)
 uv1_scale = Vector3(8, 8, 1)
+emission_enabled = true
+emission_texture = ExtResource("4_piso")
+emission = Color(1, 0.35, 0.05, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_corpo"]
+size = Vector3(17, 0.8, 17)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_corpo"]
+albedo_color = Color(0.09, 0.08, 0.08, 1)
+metallic = 0.7
+roughness = 0.45
+emission_enabled = true
+emission = Color(1, 0.28, 0.04, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_vapor"]
+size = Vector2(0.7, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vapor"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.95, 0.9, 0.35)
+blend_mode = 1
+billboard_mode = 1
+disable_receive_shadows = true
+
+[sub_resource type="ParticleProcessMaterial" id="Processo_vapor"]
+emission_shape = 3
+emission_box_extents = Vector3(7, 0.1, 7)
+direction = Vector3(0, 1, 0)
+spread = 12.0
+initial_velocity_min = 0.6
+initial_velocity_max = 1.4
+gravity = Vector3(0, 0.35, 0)
+damping_min = 0.4
+damping_max = 0.9
+scale_min = 1.4
+scale_max = 2.6
+color = Color(1, 0.92, 0.85, 1)
+
+[sub_resource type="StyleBoxFlat" id="Fundo_da_barra"]
+bg_color = Color(0.09, 0.08, 0.07, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.29, 0.25, 0.21, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="Barra_p1"]
+bg_color = Color(0.76, 0.21, 0.17, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="Barra_p2"]
+bg_color = Color(0.18, 0.37, 0.64, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_chef"]
 radius = 0.35
 height = 0.9
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_chef1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_parado1"]
 atlas = ExtResource("5_p1")
 region = Rect2(0, 0, 64, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_chef2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_parado2"]
+atlas = ExtResource("5_p1")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_andando1"]
+atlas = ExtResource("7_andando_p1")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_andando2"]
+atlas = ExtResource("7_andando_p1")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_andando3"]
+atlas = ExtResource("7_andando_p1")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1_andando4"]
+atlas = ExtResource("7_andando_p1")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="Animacoes_p1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1_parado1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1_parado2")
+}],
+"loop": 1,
+"name": &"parado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1_andando1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1_andando2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1_andando3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1_andando4")
+}],
+"loop": 1,
+"name": &"andando",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_parado1"]
 atlas = ExtResource("6_p2")
 region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_parado2"]
+atlas = ExtResource("6_p2")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_andando1"]
+atlas = ExtResource("8_andando_p2")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_andando2"]
+atlas = ExtResource("8_andando_p2")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_andando3"]
+atlas = ExtResource("8_andando_p2")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2_andando4"]
+atlas = ExtResource("8_andando_p2")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="Animacoes_p2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2_parado1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2_parado2")
+}],
+"loop": 1,
+"name": &"parado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2_andando1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2_andando2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2_andando3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2_andando4")
+}],
+"loop": 1,
+"name": &"andando",
+"speed": 5.0
+}]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wok"]
 sky_top_color = Color(0.24313726, 0.3254902, 0.47843137, 1)
@@ -63,6 +233,19 @@ mesh = SubResource("BoxMesh_chao")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chao"]
 shape = SubResource("BoxShape3D_chao")
 
+[node name="Corpo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.35, 0)
+material_override = SubResource("StandardMaterial3D_corpo")
+mesh = SubResource("BoxMesh_corpo")
+
+[node name="Vapor" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+emitting = true
+amount = 24
+lifetime = 3.0
+process_material = SubResource("Processo_vapor")
+draw_pass_1 = SubResource("QuadMesh_vapor")
+
 [node name="P1" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.1, 0)
 script = ExtResource("1_jogador")
@@ -76,9 +259,10 @@ tecla_baixo = "S"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 shape = SubResource("CapsuleShape3D_chef")
 
-[node name="Sprite3D" type="Sprite3D" parent="P1"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="P1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-texture = SubResource("AtlasTexture_chef1")
+sprite_frames = SubResource("Animacoes_p1")
+animation = &"parado"
 
 [node name="P2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, 0)
@@ -93,9 +277,10 @@ tecla_baixo = "ui_down"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 shape = SubResource("CapsuleShape3D_chef")
 
-[node name="Sprite3D" type="Sprite3D" parent="P2"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="P2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-texture = SubResource("AtlasTexture_chef2")
+sprite_frames = SubResource("Animacoes_p2")
+animation = &"parado"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 9, 12)
@@ -113,3 +298,44 @@ environment = SubResource("Environment_wok")
 
 [node name="Diretor" type="Node" parent="."]
 script = ExtResource("2_diretor")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="NomeP1" type="Label" parent="HUD"]
+anchor_left = 0.03
+anchor_top = 0.862
+anchor_right = 0.13
+anchor_bottom = 0.9
+theme_override_colors/font_color = Color(0.949, 0.937, 0.902, 1)
+theme_override_font_sizes/font_size = 18
+text = "P1"
+
+[node name="NomeP2" type="Label" parent="HUD"]
+anchor_left = 0.87
+anchor_top = 0.862
+anchor_right = 0.97
+anchor_bottom = 0.9
+theme_override_colors/font_color = Color(0.949, 0.937, 0.902, 1)
+theme_override_font_sizes/font_size = 18
+text = "P2"
+horizontal_alignment = 2
+
+[node name="FolegoP1" type="ProgressBar" parent="HUD"]
+anchor_left = 0.03
+anchor_top = 0.902
+anchor_right = 0.23
+anchor_bottom = 0.935
+value = 100.0
+show_percentage = false
+theme_override_styles/background = SubResource("Fundo_da_barra")
+theme_override_styles/fill = SubResource("Barra_p1")
+
+[node name="FolegoP2" type="ProgressBar" parent="HUD"]
+anchor_left = 0.77
+anchor_top = 0.902
+anchor_right = 0.97
+anchor_bottom = 0.935
+value = 100.0
+show_percentage = false
+theme_override_styles/background = SubResource("Fundo_da_barra")
+theme_override_styles/fill = SubResource("Barra_p2")
